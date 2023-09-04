@@ -1,0 +1,8 @@
+.row img{
+    width: 70%;
+}
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
