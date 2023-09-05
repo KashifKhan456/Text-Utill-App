@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar';
 import About from './Components/About';
 import Faq from './Components/Faq';
 import Alert from './Components/Alert';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [mode , setMode] = useState('light');
@@ -26,15 +27,22 @@ function App() {
     }
     const showAlert = (message, type)=>{
       setAlert({msg:message, type:type})
+      setTimeout(() => {
+        setAlert(null)
+      }, 1500);
     }
   return (
+    <BrowserRouter>
     <div>
       <Navbar mode={mode} toggleTheme={toggleTheme} toggleText={toggleText}/>
       <Alert alert={alert}/>
-      <Home mode={mode}/>
-      <About mode={mode} heading='About Us'/>
-      <Faq heading ='Frequently Asked Question' mode={mode}/>
+      <Routes >
+      <Route path='/' element={<Home mode={mode} showAlert={showAlert}/>}></Route>
+      <Route path='/About' element={<About mode={mode} heading='About Us'/>}></Route>
+      <Route path='/Faq' element={<Faq heading ='Frequently Asked Question' mode={mode}/>}></Route>
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 

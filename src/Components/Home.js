@@ -56,19 +56,23 @@ export default function Home(props) {
   
         case 'uppercase':
           setText(text.toUpperCase());
+          props.showAlert("Text has been converted into Uppercase","success");
           break;
         
         case 'lowercase':
           setText(text.toLowerCase());
+          props.showAlert("Text has been converted into Lowercase","success");
           break;
         
         case 'removeSpaces':
           const newString = `${text}`.replace(/\s+/g,' ') ;
           setText(newString);
+          props.showAlert("Extra Spaces has been remvoed from your text","success");
           break;
 
         case 'copyText':
           navigator.clipboard.writeText(`${text}`);
+          props.showAlert("Text has been copied to your clipboard","success");
           break;
 
         case 'capitalizeText':
@@ -85,9 +89,11 @@ export default function Home(props) {
           .join(' ');
     
         setText(capitalizedText);
+        props.showAlert("Text has been converted into Capitalize case","success");
         break;
         case 'clearText':
           setText('');
+          props.showAlert("Your text has been erased write something to anylyze","success");
           break;
           default:
             break;
