@@ -1,11 +1,18 @@
 import React from 'react'
 
 export default function Alert(props) {
+    // For capitalizing function
+    const capitalizeFunc = (word)=>{
+        const lowerCase = word.toLowerCase();
+        const firstLetterUppercase = lowerCase[0].toUpperCase() + lowerCase.slice(1);
+        return firstLetterUppercase;
+    }
+   
     // console.log(props.alert);
   return (
     <div>
-      {props.alert && <div className="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{props.alert.type}</strong> You should check in on some of those fields below.
+      {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
+        <strong>{capitalizeFunc(props.alert.type)}</strong> {props.alert.msg}.
         <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>}
     </div>
