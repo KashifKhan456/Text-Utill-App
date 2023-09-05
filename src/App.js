@@ -38,8 +38,8 @@ function App() {
       <Alert alert={alert}/>
       <Routes >
       <Route path='/' element={<Home mode={mode} showAlert={showAlert}/>}></Route>
-      <Route path='/About' element={<About mode={mode} heading='About Us'/>}></Route>
-      <Route path='/Faq' element={<Faq heading ='Frequently Asked Question' mode={mode}/>}></Route>
+      <Route exact path='/About' element={<About mode={mode} heading='About Us'/>}></Route>
+      <Route exact path='/Faq' element={<Faq heading ='Frequently Asked Question' mode={mode}/>}></Route>
       </Routes>
     </div>
     </BrowserRouter>
